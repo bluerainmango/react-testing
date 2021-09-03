@@ -6,7 +6,7 @@ test("renders learn react link", () => {
 
   // access to DOM
   // getByRole is recommended over getById for accessibility.
-  // name: innerText
+  // name: innerText(name that user actually see on the screen, not the name for coding)
   const colorBtn = screen.getByRole("button", { name: "Change to blue" });
 
   // assertion. always start with expect. toHaveStyle(): jest-dom's method
@@ -42,8 +42,8 @@ test("initial conditions", () => {
 test("checkbox disabled button on first click and enables on second click", () => {
   render(<App />);
 
-  const checkbox = screen.getByRole("checkbox");
-  const colorBtn = screen.getByRole("button");
+  const checkbox = screen.getByRole("checkbox", { name: "Disable button" });
+  const colorBtn = screen.getByRole("button", { name: "Change to blue" });
 
   fireEvent.click(checkbox);
   expect(colorBtn).toBeDisabled();
