@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -7,10 +7,19 @@ function App() {
 
   const newButtonColor = buttonColor === "red" ? "blue" : "red";
 
+  // useEffect(() => {
+  //   if (disabled) {
+  //     setButtonColor("gray");
+  //   } else {
+  //     setButtonColor("red");
+  //   }
+  // }, [disabled]);
+
   return (
     <div>
       <button
-        style={{ backgroundColor: buttonColor }}
+        // style={{ backgroundColor: buttonColor }}
+        style={{ backgroundColor: disabled ? "gray" : buttonColor }}
         onClick={() => {
           setButtonColor(newButtonColor);
         }}
