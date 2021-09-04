@@ -27,7 +27,8 @@ test("button turns blue when clicked", () => {
   expect(colorBtn).toHaveStyle({ backgroundColor: "blue" });
 
   // expect the button text to be 'Change to red'
-  expect(colorBtn.textContent).toBe("Change to red");
+  // expect(colorBtn.textContent).toBe("Change to red");
+  expect(colorBtn).toHaveTextContent("Change to red"); // ESLint suggested version
 });
 
 test("initial conditions", () => {
@@ -74,14 +75,17 @@ test("color", () => {
   expect(colorBtn).toHaveStyle({ backgroundColor: "red" });
 });
 
+//! Unit Test for replaceCamelWithSpaces function
 // one test suite
 describe("spaces before camel-case capital letters", () => {
   test("Works for no inner capital letters", () => {
     expect(replaceCamelWithSpaces("Red")).toBe("Red");
   });
+
   test("Works for one inner capital letter", () => {
     expect(replaceCamelWithSpaces("MidnightBlue")).toBe("Midnight Blue");
   });
+
   test("Works for multiple inner capital letters", () => {
     expect(replaceCamelWithSpaces("MediumVioletRed")).toBe("Medium Violet Red");
   });
